@@ -1,0 +1,20 @@
+git init
+git add GettingStarted.txt
+git add GitBranching.txt
+git add DistributedGit.txt
+git rm GitBranching.txt
+git checkout -- GitBranching.txt
+git commit -m "first file Getting Started" GettingStarted.txt
+git commit -m "second file Git Branching" GitBranching.txt
+git commit -m "third file Distributed Git" DistributedGit.txt
+git commit -m "Deleting the Git Branching file" GitBranching.txt
+git commit -m "restoring the Git Branching file before commiting " GitBranching.txt
+git push -u origin master
+git branch ReadMe
+git checkout ReadMe
+git add README.md
+git commit -m "add Readme file to readme branch" README.md
+git checkout master
+git merge ReadMe
+git add AllMyCommands.txt
+git commit -m "all my commands file for all the commands done to do the individual part in sprint 0" AllMyCommands.txt
