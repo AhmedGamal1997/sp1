@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+    <div class="col-md-12">
+        <p class="items">
+            items
+        </p>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <form [formGroup]= "Addproduct" (ngSubmit)="addproduct(Addproduct.value)" class="f">
+        <div class="form-row align-items-center">
+            <div class="col-sm-3 my-1">
+                <label class="sr-only" for="inlineFormInputName">Name</label>
+                <input type="text" formControlName="name" class="form-control" id="inlineFormInputName" placeholder="name">
+            </div>
+            <div class="col-sm-3 my-1">
+                <label class="sr-only" for="inlineFormInputGroupUsername">Price</label>
+                <div class="input-group">
+                    <input type="number" formControlName="price" class="form-control" id="inlineFormInputGroupUsername" placeholder="price">
+                </div>
+            </div>
+            <div class="col-auto my-1">
+                <td> <button class="btn" type="submit" ><i class="fa fa-cart-plus"></i></button> </td>
+            </div>
+        </div>
+    </form>
+</div>
+<hr>
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+        <th scope="col">created at</th>
+        <th scope="col">updated at</th>
+        <th scope="col">edit</th>
+        <th scope="col">delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let Product of Myproduct ">
+        <th >
+            {{Product.name}}
+        </th>
+        <th >
+            {{Product.price | currency}}
+        </th>
+        <th >
+            {{Product.createdAt | date}}
+        </th>
+        <th >
+            {{Product.updatedAt | date}}
+        </th>
+        <td>
+            <form [formGroup]= "editproducts" (ngSubmit)="editproduct(Product._id,editproducts.value)" class="f">
+                <div class="form-row align-items-center">
+                    <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputName">Name</label>
+                        <input type="text" formControlName="ename" class="form-control" id="inlineFormInputName1" placeholder="name">
+                    </div>
+                    <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Price</label>
+                        <div class="input-group">
+                            <input type="number" formControlName="eprice" class="form-control" id="inlineFormInputGroupUsername1" placeholder="price">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 my-1">
+                        <div class="input-group">
+                            <button class="btn" type="submit"><i class="fa fa-edit"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </td>
+        <td> <button class="btn" (click)="deleteproducts(Product._id)" onclick="componentRefresh"><i class="fa fa-cart-arrow-down"></i></button> </td>
+    </tr>
+
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+<div class="header-container left">
+  <div class="logo-containter">
+    <a (click)="toggleSidebar()" class="navigation">
+      <i class="nb-menu"></i>
+    </a>
+    <div class="logo">
+     <a [routerLink]="['']">
+       <img src="{{srcImage}}" alt="Logo" style="max-height:80px;">
+     </a>
+      <a [routerLink]="['']"> Tutorial 15 </a>
+    </div>
+  </div>
+  <ngx-theme-switcher></ngx-theme-switcher>
+</div>
+
+<nb-actions size="medium" class="header-container right">
+  <nb-action>
+    <nb-user *ngIf="user" [menu]="userMenu" [name]="user?.username" (menuClick)="onMenuClick($event)"></nb-user>    
+    </nb-action>
+    <nb-action style="margin-right:0px;">
+      <a *ngIf="!user" class="btn btn-success" style="margin-left:10px" [routerLink]="['login']">Login</a>
+    </nb-action>
+    <nb-action style="margin-left:0px;">
+      <a *ngIf="!user" class="btn btn-success" [routerLink]="['register']">Register</a>
+    </nb-action>
+    
+</nb-actions>
